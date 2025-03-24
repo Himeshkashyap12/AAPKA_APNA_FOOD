@@ -1,6 +1,6 @@
 import { Avatar, Menu ,Switch } from "antd";
 import CustomText from "../../../common/CustomText";
-import "./adminsidebar.css";
+import "./adminSidebar.css";
 import { UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo/logo.webp";
@@ -135,7 +135,7 @@ const AdminSidebar = ({ collapsed }) => {
         <Avatar className={`${collapsed ? "size-[50px]" : "size-[80px]"}`} src={logo}/>
       </div>
       <div className="admin-menu">
-        
+
         <Menu
           onClick={(e) => {handleSidebar(e)}}
           defaultSelectedKeys={["1"]}
