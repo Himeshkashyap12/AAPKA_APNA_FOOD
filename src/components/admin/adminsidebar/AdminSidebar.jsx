@@ -135,6 +135,7 @@ const AdminSidebar = ({ collapsed }) => {
         <Avatar className={`${collapsed ? "size-[50px]" : "size-[80px]"}`} src={logo}/>
       </div>
       <div className="admin-menu">
+        
         <Menu
           onClick={(e) => {handleSidebar(e)}}
           defaultSelectedKeys={["1"]}
