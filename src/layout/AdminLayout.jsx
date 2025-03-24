@@ -8,8 +8,8 @@ const AdminLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <Layout>
-      <div className="bg-primary">
+    <Layout >
+      <div className="bg-backgrondColor h-[100vh]">
         <Sider
           trigger={null}
           collapsible
@@ -29,11 +29,8 @@ const AdminLayout = () => {
         </Header>
         <Content
           style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: "80.8vh",
-            background: "#FBF2E9",
-            borderRadius: "10px",
+            padding: " 30px 50px",
+            background: "#FFF2F2",
           }}
         >
          <Outlet/>

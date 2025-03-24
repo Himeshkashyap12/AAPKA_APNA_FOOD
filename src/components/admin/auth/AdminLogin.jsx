@@ -14,10 +14,10 @@ const AdminLogin = () => {
             value={"AAPKA APNA FOOD"}
           />
           <div className="flex flex-col gap-5">
-            <div>
-              <CustomInput placeholder={"Enter your Email"} />
+            <div className="bg-white rounded-md">
+              <CustomInput  className="" placeholder={"Enter your Email"} />
             </div>
-            <div>
+            <div className="bg-white rounded-md">
               <CustomInput placeholder={"Enter your password"} />
             </div>
             <CustomButton className="w-full" value={"Log in"} />

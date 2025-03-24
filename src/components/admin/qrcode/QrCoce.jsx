@@ -5,6 +5,7 @@ import qrcode from "../../../assets/qrcode/qrcode.png";
 import CustomButton from "../../../common/CustomButton";
 import CustomModal from "../../../common/CustomModal";
 import QrCodeForm from "./QrcodeForm";
+import { CloudDownloadOutlined, PlusOutlined } from "@ant-design/icons";
 const qrData = [
   {
     id: 1,
@@ -24,23 +25,28 @@ const QrCode = () => {
   return (
     <>
       <Row>
+      <div className="add-qrcode bg-white  rounded-md  mx-7">
+          <div className="w-[230px]  flex  justify-center items-center h-full relative ">
+            <CustomButton
+              onclick={() => {
+                setQrCodeGenerator(true);
+              }}
+              value={<PlusOutlined />}
+            />
+             <CustomText
+                          className={"font-bold text-secondary absolute bottom-5 "}
+                          value={`QrCode Generator`}
+                        />
+          </div>
+        </div>
         {qrData?.map((item, idx) => {
           return (
             <>
               <Col span={6}>
-                <div
-                  className="flex justify-center"
-                  onMouseEnter={() => {
-                    setQrTextId(idx);
-                  }}
-                  onMouseLeave={() => {
-                    setQrTextId(null);
-                  }}
-                >
-                  <Avatar className="rounded-md" size={200} src={qrcode} />
-                  {qrTextId === idx && (
-                    <div className="absolute left-0 right-0 flex justify-center top-0 bottom-0 my-auto     mx-auto w-full">
-                      <div className="flex  flex-col gap-2 justify-center bg-white p-2 rounded-md w-[80%] text-center">
+              
+                  <div className="flex  flex-col gap-1  justify-center bg-white p-2  w-[90%] text-center">
+
+                  <Avatar className="rounded-t-md rounded-b-none" size={200} src={qrcode} />
                         <CustomText
                           className={"font-bold text-secondary"}
                           value={`Department : ${item?.department}`}
@@ -49,25 +55,18 @@ const QrCode = () => {
                           className={"font-bold text-secondary"}
                           value={`Bed number : ${item?.bedNumber}`}
                         />
-                        <CustomButton value={"Download Qr"} />
-                      </div>
-                    </div>
-                  )}
+                        <div className="  w-full">
+                    
+                    <CustomButton value={<CloudDownloadOutlined />} />
+                
                 </div>
+                        </div>
+                 
               </Col>
             </>
           );
         })}
-        <div className="add-qrcode bg-white  flex justify-center items-center  rounded-md ">
-          <div className="px-5">
-            <CustomButton
-              onclick={() => {
-                setQrCodeGenerator(true);
-              }}
-              value={"QrCode Generator"}
-            />
-          </div>
-        </div>
+       
       </Row>
       <CustomModal
         footer={false}

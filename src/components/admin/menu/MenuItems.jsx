@@ -3,8 +3,12 @@ import CustomButton from "../../../common/CustomButton";
 import CustomHeading from "../../../common/CustomHeading";
 import CustomTable from "../../../common/CustomTable";
 import { Avatar } from "antd";
+import CustomModal from "../../../common/CustomModal";
+import { useState } from "react";
+import AddMenuForm from "./MenuForm";
 
 const MenuItems=()=>{
+  const [menuModal, setMenuModal] = useState(false);
     const dataSource = [
         {
           key: '1',
@@ -64,11 +68,10 @@ const MenuItems=()=>{
         <>
         <div className="flex justify-between items-center py-3">
             <div><CustomHeading level={4} value={"Menu Items"}/></div>
-            <div><CustomButton value={"Add Menu"}/> </div>
+            <div><CustomButton onclick={()=>setMenuModal(true)} value={"Add Menu"}/> </div>
         </div>
-     
          <CustomTable dataSource={dataSource} columns={columns}/>
-        
+        <CustomModal  footer={false} modalBody={<AddMenuForm/>} value={"Add Menu"}  setOpen={setMenuModal} open={menuModal}/>
         </>
     )
 }

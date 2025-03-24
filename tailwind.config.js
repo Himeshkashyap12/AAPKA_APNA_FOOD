@@ -9,12 +9,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#D98324",
-        secondary:"#443627",
+        primary: "#FF7043",
+        secondary:" #333333 ",
         white:"#fff",
         red:"#FF0000",
-        green:"#008000"
-         
+        green:"#008000",
+        backgrondColor:"#FFF2F2",
+        acceptColor:"#5CE65C",
+        reject:"#E65C5C"
        },
     },
    

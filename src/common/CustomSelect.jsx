@@ -5,8 +5,8 @@ const CustomSlect=({handleChange,options,defaultValue,className})=>{
         <>
          <Space wrap>
         <Select
-        className="min-w-[130px]"
-            defaultValue={`${defaultValue??options[0].value}`}
+            className={`w-[130px] rounded-md h-[45px] shadow-xl ${className}`}
+            defaultValue={`${defaultValue??options[0]?.value}`}
             onChange={handleChange}
             options={options}
         /> 

@@ -1,13 +1,23 @@
-import { Menu ,Switch } from "antd";
+import { Avatar, Menu ,Switch } from "antd";
 import CustomText from "../../../common/CustomText";
 import "./adminsidebar.css";
 import { UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import logo from "../../../assets/logo/logo.webp";
+
 const AdminSidebar = ({ collapsed }) => {
   const navigate=useNavigate();
   console.log(collapsed);
 
   const sidebarItems = [
+    {
+      key: "0",
+      path:"admin/home",
+      icon: <UserOutlined style={{ color: "#443627" }} />,
+      label: !collapsed && (
+        <CustomText className={"font-semibold text-secondary"} value="Home" />
+      ),
+    },
     {
       key: "1",
       path:"admin/menu",
@@ -42,7 +52,6 @@ const AdminSidebar = ({ collapsed }) => {
       label: !collapsed && (
         <CustomText
           className={"font-semibold text-secondary "}
-          s
           value="Orders"
         />
       ),
@@ -82,7 +91,7 @@ const AdminSidebar = ({ collapsed }) => {
       ),
       children: [
         {
-          key: "10",
+          key: "8",
           icon: <UserOutlined style={{ color: "#443627" }} />,
           path:"admin/accounts",
           label: !collapsed && (
@@ -93,6 +102,18 @@ const AdminSidebar = ({ collapsed }) => {
           ),
         },]
     
+    },
+    {
+      key: "9",
+      path:"admin/payment",
+      icon: <UserOutlined style={{ color: "#443627" }} />,
+      label: !collapsed && (
+        <CustomText
+          className={"font-semibold text-secondary "}
+          s
+          value="Payment"
+        />
+      ),
     },
   ];
   const handleSidebar=(e)=>{
@@ -109,15 +130,16 @@ const AdminSidebar = ({ collapsed }) => {
 
   return (
     <div className="admin-sidebar ">
-      <div className="admin-logo flex justify-center py-2">
-        <div className=" size-[50px] rounded-full bg-white"></div>
+      <div className="admin-logo flex justify-center ms-5  py-2">
+        {/* <div className=" size-[50px] rounded-full bg-white"></div> */}
+        <Avatar className={`${collapsed ? "size-[50px]" : "size-[80px]"}`} src={logo}/>
       </div>
       <div className="admin-menu">
         <Menu
           onClick={(e) => {handleSidebar(e)}}
           defaultSelectedKeys={["1"]}
           items={sidebarItems}
-          className="bg-primary "
+          className="bg-white py-3 rounded-md ms-5  "
           mode="inline"
         />
       </div>

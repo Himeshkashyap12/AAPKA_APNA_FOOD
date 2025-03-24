@@ -1,10 +1,10 @@
 import { Table } from "antd"
 import "./common.css"
-const CustomTable=({dataSource,columns})=>{
+const CustomTable=({dataSource,columns,scroll})=>{
     
   return(
     <div className="custom-table">
-    <Table pagination={false} dataSource={dataSource} columns={columns} />
+    <Table  scroll={scroll} pagination={false} dataSource={dataSource} columns={columns} />
 
     
     </div>

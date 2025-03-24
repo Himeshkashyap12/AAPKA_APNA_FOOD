@@ -6,7 +6,7 @@ const QrCodeForm=()=>{
         <>
          <div className="flex flex-col gap-5">
          <div>
-                <CustomInput placeholder={"Enter Hospital Name"} />
+                <CustomInput placeholder={"Enter Store Name (optional)"} />
               </div>
               <div>
                 <CustomInput placeholder={"Enter department"} />

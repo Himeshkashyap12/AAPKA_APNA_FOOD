@@ -1,13 +1,13 @@
-import { Avatar, Button } from "antd";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import CustomInput from "../../../common/CustomInput";
+import { Avatar, Badge, Button, Input } from "antd";
+import { BellOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import profile from "../../../assets/profile/profile.jpeg";
 const AdminHeader = ({ setCollapsed, collapsed }) => {
   return (
-    <div className="flex justify-between bg-primary pe-10">
+    <div className="flex justify-between bg-backgrondColor pe-10">
       <div className="flex gap-5">
         <Button
           type="text"
-          icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
           onClick={() => setCollapsed(!collapsed)}
           style={{
             fontSize: "16px",
@@ -16,15 +16,18 @@ const AdminHeader = ({ setCollapsed, collapsed }) => {
           }}
         />
         <div className="w-[500px]">
-          <CustomInput
+          <Input
             placeholder={"Search"}
             className={" !rounded-full w-full"}
           />
         </div>
       </div>
 
-      <div>
-        <Avatar />
+      <div className="flex gap-5 items-center">
+      <Badge size="small" count={3} color="#E65C5C"  className="cursor-pointer">
+      <BellOutlined  style={{fontSize:"24px", color:"#333333"}} />
+        </Badge>
+        <Avatar className="cursor-pointer"  src={profile} />
       </div>
     </div>
   );

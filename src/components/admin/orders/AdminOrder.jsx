@@ -1,8 +1,8 @@
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import CustomButton from "../../../common/CustomButton";
+import { CheckOutlined, CloseOutlined, WhatsAppOutlined } from "@ant-design/icons";
 import CustomHeading from "../../../common/CustomHeading";
 import CustomTable from "../../../common/CustomTable";
 import CustomSlect from "../../../common/CustomSelect";
+import { Avatar, Button } from "antd";
 
 const AdminOrer = () => {
   const dataSource = [
@@ -13,6 +13,7 @@ const AdminOrer = () => {
       description: "10 Downing Street",
       customerName: "Rahul",
       status: "Pending",
+      phoneNumber:"9898345679"
     },
   ];
 
@@ -21,32 +22,54 @@ const AdminOrer = () => {
       title: "OrderId",
       dataIndex: "orderID",
       key: "orderID",
+      width:60
+
     },
+    {
+      title: "Product Image",
+      dataIndex: "orderID",
+      key: "orderID",
+      align:"center",
+      width:130,
+      render:(text=>{
+        return(
+          <Avatar/>
+        )
+      })
+    },
+    
+
     {
       title: "Title",
       dataIndex: "title",
       key: "title",
-    },
-    {
-      title: "Description",
-      dataIndex: "description",
-      key: "description",
+      width:150
     },
     {
       title: "CustomerName",
       dataIndex: "customerName",
       key: "customerName",
+      width:100
+
+    },
+    {
+      title: "Phone Number",
+      dataIndex: "phoneNumber",
+      key: "phoneNumber",
+      width:150
+
     },
     {
       title: "Accept/Reject",
       dataIndex: "accptRjct",
       key: "accptRjct",
       align: "center",
+      width:100,
       render:()=>{
         return(
           <div className="flex gap-2  justify-center">
-            <CustomButton className={"!bg-green hover:!bg-green"} value={"Accept"} type={"primary"} />
-            <CustomButton className={"bg-red hover:!bg-red"} value={"Reject"} type={"danger"} />
+            <Button className={"!bg-acceptColor hover:!bg-acceptColor"}  type={"primary"} ><CheckOutlined /></Button>
+            <Button className={"!bg-reject hover:!bg-reject"} type={"danger"} ><CloseOutlined style={{color:"white"}} /></Button>
           </div>
         )
         
@@ -57,10 +80,12 @@ const AdminOrer = () => {
       dataIndex: "status",
       key: "status",
       align: "center",
+      width:70,
       render: () => {
         return (
-          <div className="flex gap-2  justify-center">
+          <div className="flex gap-2  justify-center ">
             <CustomSlect
+            className={"!w-[120px] !h-[30px]"}
               handleChange={() => {handleChange}}
               options={[
                 { label: "new", value: "New" },
@@ -72,6 +97,21 @@ const AdminOrer = () => {
         );
       },
     },
+    {
+      title: "WhatsApp Message",
+      dataIndex: "whatsApp",
+      key: "whatsApp",
+      align: "center",
+      width:150,
+      render:()=>{
+        return(
+          <div className="flex gap-2  justify-center">
+            <Button   className="bg-acceptColor hover:!bg-acceptColor border-none" ><WhatsAppOutlined style={{color:"#fff"}} /></Button>
+          </div>
+        )
+        
+      }
+    },
   ];
   return (
     <>
@@ -81,7 +121,7 @@ const AdminOrer = () => {
         </div>
       </div>
 
-      <CustomTable dataSource={dataSource} columns={columns} />
+      <CustomTable scroll={{x:1200}} dataSource={dataSource} columns={columns} />
     </>
   );
 };
