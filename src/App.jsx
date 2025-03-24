@@ -3,7 +3,7 @@
 import { Route, Routes } from 'react-router-dom'
 import AdminLayout from './layout/AdminLayout'
 import MenuPage from './pages/MenuPage'
-import OrderPage from './pages/OrderPAge'
+import OrderPage from './pages/OrderPage'
 import StorePage from './pages/StorePage'
 import AnalyticsPage from './pages/AnalyticsPage'
 import QrcodePage from './pages/QrCodePage'
